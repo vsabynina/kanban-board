@@ -1,0 +1,67 @@
+.header {
+    width: 100%;
+    min-height: 55px;
+    box-sizing: border-box;
+    background: #0067A3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: 28px;
+    line-height: 33px;
+    color: #FFFFFF;
+}
+
+.icon_wrapper {
+    display: flex;
+}
+
+.logo {
+    margin-right: 6px;
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.select {
+    overflow-y: hidden;
+    width: 160px;
+    height: fit-content;
+    background-color: white;
+    border-radius: 5px;
+    outline: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    border: none;
+    box-shadow: rgba(0, 103, 163, 0.45) 0px 4px 12px;
+}
+
+.select option:checked {
+    background: #b8dbf6 -webkit-linear-gradient(bottom, #b8dbf6 0%, #b8dbf6 100%);
+    color: #000000;
+}
+
+.select option:hover {
+    background: #e5edf8 -webkit-linear-gradient(bottom, #e5edf8 0%, #e5edf8 100%);
+    color: #000000;
+}
+
+.select option:active {
+    color: #000000;
+}
+
+.select option {
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    padding: 8px;
+    cursor: pointer;
+}

@@ -1,0 +1,38 @@
+.select {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: auto;
+
+}
+
+.select option:checked {
+    background: #b8dbf6 -webkit-linear-gradient(bottom, #b8dbf6 0%, #b8dbf6 100%);
+    color: #000000;
+}
+
+.select option:hover {
+    background: #e5edf8 -webkit-linear-gradient(bottom, #e5edf8 0%, #e5edf8 100%);
+    color: #000000;
+}
+
+.select option:active {
+    color: #000000;
+}
+
+.select option {
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    padding: 8px;
+    cursor: pointer;
+}

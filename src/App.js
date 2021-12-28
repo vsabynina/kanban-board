@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
+import { LIST_TYPES } from "./config";
 
 function App() {
+  const initialState = JSON.parse(window.localStorage.getItem("tasks")) || [];
+  const [tasks, setTasks] = useState(initialState);
+
+  useEffect(() => {
+    window.localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  const backlogTasks = tasks.filter(
+    (task) => task.status === LIST_TYPES.BACKLOG
+  );
+
+  const readyTasks = tasks.filter((task) => task.status === LIST_TYPES.READY);
+
+  const inProgressTasks = tasks.filter(
+    (task) => task.status === LIST_TYPES.IN_PROGRESS
+  );
+
+  const finishedTasks = tasks.filter(
+    (task) => task.status === LIST_TYPES.FINISHED
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Header />
+      <Main
+        tasks={tasks}
+        setTasks={setTasks}
+        backlogTasks={backlogTasks}
+        readyTasks={readyTasks}
+        inProgressTasks={inProgressTasks}
+      />
+      <Footer backlogTasks={backlogTasks} finishedTasks={finishedTasks} />
     </div>
   );
 }

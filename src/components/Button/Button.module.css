@@ -1,0 +1,21 @@
+.button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    line-height: 21px;
+    color: #5E6C84;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: #0067a3;
+    transition: color 0.2s ease-in;
+}
+
+.disabled {
+    cursor: default;
+}
+
+.disabled:hover {
+    color: #5E6C84;
+}
