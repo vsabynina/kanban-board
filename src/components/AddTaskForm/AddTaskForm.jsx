@@ -45,4 +45,5 @@ const AddTaskForm = ({ addNewBacklogTask, setIsFormShown }) => {
     </form>
   );
 };
+
 export default AddTaskForm;

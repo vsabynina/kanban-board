@@ -5,34 +5,12 @@ import Board from "../Board/Board";
 import TaskInfo from "../TaskInfo/TaskInfo";
 import ErrorPage from "../ErrorPage/ErrorPage";
 
-const Main = ({
-  tasks,
-  setTasks,
-  backlogTasks,
-  readyTasks,
-  inProgressTasks,
-}) => {
+const Main = () => {
   return (
     <main className={css.main}>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Board
-              tasks={tasks}
-              setTasks={setTasks}
-              backlogTasks={backlogTasks}
-              readyTasks={readyTasks}
-              inProgressTasks={inProgressTasks}
-            />
-          }
-        />
-
-        <Route
-          path="/tasks/:taskId"
-          element={<TaskInfo tasks={tasks} setTasks={setTasks} />}
-        />
-
+        <Route path="/" element={<Board />} />
+        <Route path="/tasks/:taskId" element={<TaskInfo />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </main>

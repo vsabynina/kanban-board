@@ -1,24 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import css from "./TaskInfo.module.css";
 import Cross from "../../assets/cross.svg";
 import Description from "../Description/Description";
+import { Context } from "../../Context";
 
-const TaskInfo = ({ tasks, setTasks }) => {
+const TaskInfo = () => {
+  const { tasks } = useContext(Context);
+
   let navigate = useNavigate();
   let { taskId } = useParams();
   const task = tasks.find((task) => task.id === taskId);
-
-  // const handleChange = (e) => {
-  //     const newStatus = e.target.value
-  //     const updatedTasks = tasks.map(task => {
-  //         if (task.id === taskId) {
-  //             return {...task, status: newStatus}
-  //         }
-  //         return task
-  //     })
-  //     setTasks(updatedTasks)
-  // }
 
   return (
     <div className={css.task_info}>
@@ -29,12 +21,7 @@ const TaskInfo = ({ tasks, setTasks }) => {
         </button>
       </div>
 
-      <Description
-        description={task.description}
-        tasks={tasks}
-        setTasks={setTasks}
-        taskId={taskId}
-      />
+      <Description description={task.description} taskId={taskId} />
     </div>
   );
 };

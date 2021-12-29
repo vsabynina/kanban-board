@@ -1,21 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import css from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { LIST_TYPES } from "../../config";
 import AddTaskForm from "../AddTaskForm/AddTaskForm";
 import SelectTask from "../SelectTask/SelectTask";
 import Button from "../Button/Button";
+import { Context } from "../../Context";
 
-const Card = ({
-  type,
-  title,
-  listTasks,
-  addNewBacklogTask,
-  replaceTasks,
-  backlogTasks,
-  readyTasks,
-  inProgressTasks,
-}) => {
+const Card = ({ type, title, listTasks, addNewBacklogTask, replaceTasks }) => {
+  const { backlogTasks, readyTasks, inProgressTasks } = useContext(Context);
+
   const [isFormShown, setIsFormShown] = useState(false);
 
   const handleButtonClick = () => {
@@ -109,4 +103,5 @@ const Card = ({
     </div>
   );
 };
+
 export default Card;

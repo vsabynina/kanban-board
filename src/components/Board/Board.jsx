@@ -1,16 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import css from "./Board.module.css";
 import Card from "../Card/Card";
 import { LIST_TYPES, LIST_COPY } from "../../config";
 import { v4 as uuid } from "uuid";
+import { Context } from "../../Context";
 
-const Board = ({
-  tasks,
-  setTasks,
-  backlogTasks,
-  readyTasks,
-  inProgressTasks,
-}) => {
+const Board = () => {
+  const { tasks, setTasks } = useContext(Context);
+
   const addNewBacklogTask = (name, description) => {
     const task = {
       status: LIST_TYPES.BACKLOG,
@@ -44,6 +41,7 @@ const Board = ({
       };
       setTasks(filteredTasks, filteredTasks.push(newTask));
     }
+
     if (deletedTask.status === LIST_TYPES.IN_PROGRESS) {
       const newTask = {
         status: LIST_TYPES.FINISHED,
@@ -67,13 +65,11 @@ const Board = ({
             listTasks={listTasks}
             addNewBacklogTask={addNewBacklogTask}
             replaceTasks={replaceTasks}
-            backlogTasks={backlogTasks}
-            readyTasks={readyTasks}
-            inProgressTasks={inProgressTasks}
           />
         );
       })}
     </div>
   );
 };
+
 export default Board;
