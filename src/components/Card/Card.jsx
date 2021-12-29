@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import css from "./Card.module.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LIST_TYPES } from "../../config";
 import AddTaskForm from "../AddTaskForm/AddTaskForm";
 import SelectTask from "../SelectTask/SelectTask";
@@ -20,18 +20,9 @@ const Card = ({
 
   const handleButtonClick = () => {
     setIsFormShown((state) => !state);
-    // setDisabled(backlogTasks.length === 0 ? !disabled : disabled);
   };
 
   const [disabled, setDisabled] = useState(false);
-
-  // const setButtonDisabled = () => {
-  //   setDisabled(
-  //     (readyTasks.length === 0 ? !disabled : disabled) ||
-  //       (inProgressTasks.length === 0 ? !disabled : disabled) ||
-  //       (backlogTasks.length === 0 ? !disabled : disabled)
-  //   );
-  // };
 
   return (
     <div className={css.card}>
@@ -39,15 +30,15 @@ const Card = ({
       <div className={css.cards_wrapper}>
         {listTasks.length ? (
           listTasks.map((task) => (
-            // <Link
-            //   to={`/tasks/${task.id}`}
-            //   key={task.id}
-            //   // className={css.taskLink}
-            // >
-            <div className={css.task} key={task.id}>
-              {task.name}
-            </div>
-            // </Link>
+            <Link
+              to={`/tasks/${task.id}`}
+              key={task.id}
+              className={css.taskLink}
+            >
+              <div className={css.task} key={task.id}>
+                {task.name}
+              </div>
+            </Link>
           ))
         ) : (
           <p className={css.p}>No tasks added yet</p>

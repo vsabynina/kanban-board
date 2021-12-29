@@ -10,7 +10,9 @@ const Footer = ({ finishedTasks, backlogTasks }) => {
         </h1>
         <h1 className={css.title}>Finished tasks: {finishedTasks.length}</h1>
       </div>
-      <h1 className={css.title}>Kanban board by @vsabynina, 2021</h1>
+      <h1 className={`${css.title} ${css.author}`}>
+        Kanban board by @vsabynina, 2021
+      </h1>
     </footer>
   );
 };

@@ -1,5 +1,6 @@
 .main {
     background-color: #0079BF;
     padding: 20px;
+    display: flex;
     flex-grow: 1;
 }

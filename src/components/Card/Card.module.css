@@ -4,6 +4,7 @@
     background: #EBECF0;
     border-radius: 10px;
     padding: 12px;
+    /*margin-bottom: 50px;*/
 }
 
 .title {
@@ -51,4 +52,14 @@
     font-size: 18px;
     line-height: 21px;
     color: #000000;
+}
+
+.taskLink {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 338px) {
+    .card {
+        margin-bottom: 50px;
+    }
 }

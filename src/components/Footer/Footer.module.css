@@ -22,3 +22,9 @@
 .title_margin {
     margin-right: 36px;
 }
+
+@media screen and (max-width: 338px) {
+    .author {
+        display: none;
+    }
+}
